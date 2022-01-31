@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="GetAge" path="" id="7bc98366-8ee9-4644-aba8-dbd4f1835ed7" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7bc98366-8ee9-4644-aba8-dbd4f1835ed7fileName">GetAge</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>name</con:name>
+      <con:value>firstName</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>firstName</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="GET" id="922a1508-a82b-454a-8a60-6f6642bafa04" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Age" id="ba23481c-608f-4ed0-9c4e-4205480742e7" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://api.agify.io</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://api.agify.io/</con:originalUri>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="name" value="{Name}"/>
+      </con:parameters>
+    </con:request>
+  </con:method>
+</con:resource>

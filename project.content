@@ -1,0 +1,10 @@
+APIFirstNames\ListOfFirstNames.xml
+APIAge\GetAge.xml
+APIGender\GetGender.xml
+APINationality\GetNationality.xml
+UserDetails\FetchFirstPerson.xml
+UserDetails\FetchSecondPerson.xml
+UserDetails\FetchThirdPerson.xml
+UserDetails\FetchFourthPerson.xml
+UserDetails\FetchFifthPerson.xml
+UserDetails\Details-of-Persons.xml

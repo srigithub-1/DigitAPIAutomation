@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="5e57d889-0683-4efd-9243-4ac09d6e2c8c" name="APIFirstNames" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings>
+    <con:setting id="5e57d889-0683-4efd-9243-4ac09d6e2c8cfileName">APIFirstNames</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="DigitAPIAutomation.json">
+    <con:part>
+      <con:url>DigitAPIAutomation.json</con:url>
+      <con:content>{"openapi":"3.0.1","info":{"title":"DigitAPIAutomation","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/api/":{"get":{"responses":{"default":{"description":"Default response"}}}}}}</con:content>
+      <con:type>https://swagger.io/openapiv3/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://randomuser.me/</con:endpoint>
+  </con:endpoints>
+</con:interface>

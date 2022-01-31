@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="023b3f70-229d-43d4-9765-c56d21c6e349" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Details of Persons" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="023b3f70-229d-43d4-9765-c56d21c6e349fileName">Details-of-Persons</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="All the Details" id="d1f61050-258f-417b-a8f3-242a8b411458">
+    <con:settings/>
+    <con:config>
+      <script>def NameOfFirstPerson = context.expand( '${#[UserDetails#FetchFirstPerson#First Random Name]#result}' )
+def AgeOfFirstPerson = context.expand( '${#[UserDetails#FetchFirstPerson#REST Request for Age]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:age[1]}' )
+def GenderOfFirstPerson = context.expand( '${#[UserDetails#FetchFirstPerson#REST Request for Gender]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:gender[1]}' )
+def NationalityOfFirstPerson = context.expand( '${#[UserDetails#FetchFirstPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[1]/ns1:country_id[1]}' ) +
+ (' , ') + context.expand( '${#[UserDetails#FetchFirstPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[2]/ns1:country_id[1]}' )
+
+
+def NameOfSecondPerson = context.expand( '${#[UserDetails#FetchSecondPerson#Second Random Name]#result}' )
+def AgeOfSecondPerson = context.expand( '${#[UserDetails#FetchSecondPerson#REST Request for Age]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:age[1]}' )
+def GenderOfSecondPerson = context.expand( '${#[UserDetails#FetchSecondPerson#REST Request for Gender]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:gender[1]}' )
+def NationalityOfSecondPerson = context.expand( '${#[UserDetails#FetchSecondPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[1]/ns1:country_id[1]}' ) +
+ (' , ') + context.expand( '${#[UserDetails#FetchSecondPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[2]/ns1:country_id[1]}' )
+
+def NameOfThirdPerson = context.expand( '${#[UserDetails#FetchThirdPerson#Third Random Name]#result}' )
+def AgeOfThirdPerson = context.expand( '${#[UserDetails#FetchThirdPerson#REST Request for Age]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:age[1]}' )
+def GenderOfThirdPerson = context.expand( '${#[UserDetails#FetchThirdPerson#REST Request for Gender]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:gender[1]}' )
+def NationalityOfThirdPerson = context.expand( '${#[UserDetails#FetchThirdPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[1]/ns1:country_id[1]}' ) +
+ (' , ') + context.expand( '${#[UserDetails#FetchThirdPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[2]/ns1:country_id[1]}' )
+
+def NameOfFourthPerson = context.expand( '${#[UserDetails#FetchFourthPerson#Fourth Random Name]#result}' )
+def AgeOfFourthPerson = context.expand( '${#[UserDetails#FetchFourthPerson#REST Request for Age]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:age[1]}' )
+def GenderOfFourthPerson = context.expand( '${#[UserDetails#FetchFourthPerson#REST Request for Gender]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:gender[1]}' )
+def NationalityOfFourthPerson = context.expand( '${#[UserDetails#FetchFourthPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[1]/ns1:country_id[1]}' ) +
+ (' , ') + context.expand( '${#[UserDetails#FetchFourthPerson#REST Request for Nationality]#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[2]/ns1:country_id[1]}' )
+
+
+log.info ("Details of All the Persons is as below:")
+log.info("First Person Name: " + (NameOfFirstPerson))
+log.info("Age: " + (AgeOfFirstPerson) )
+log.info("Gender: " + (GenderOfFirstPerson))
+log.info("Nationalities: " + (NationalityOfFirstPerson))
+
+log.info("Second Person Name: " + (NameOfSecondPerson))
+log.info("Age: " + (AgeOfSecondPerson) )
+log.info("Gender: " + (GenderOfSecondPerson))
+log.info("Nationalities: " + (NationalityOfSecondPerson))
+
+log.info("Third Person Name: " + (NameOfThirdPerson))
+log.info("Age: " + (AgeOfThirdPerson) )
+log.info("Gender: " + (GenderOfThirdPerson))
+log.info("Nationalities: " + (NationalityOfThirdPerson))
+
+log.info("Fourth Person Name: " + (NameOfFourthPerson))
+log.info("Age: " + (AgeOfFourthPerson) )
+log.info("Gender: " + (GenderOfFourthPerson))
+log.info("Nationalities: " + (NationalityOfFourthPerson))</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="ListOfFirstNames" path="/api/" id="b97d8944-a85e-460c-8427-4761822f446c" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b97d8944-a85e-460c-8427-4761822f446cfileName">ListOfFirstNames</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="GET" id="7bc9c948-997b-410b-8bb5-27e9ec127eb7" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="FirstNames" id="42bb330a-ec98-4bf3-bdd9-70fe454eccf0" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://randomuser.me/</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://randomuser.me/api/</con:originalUri>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

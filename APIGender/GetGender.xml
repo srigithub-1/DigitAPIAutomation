@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="GetGender" path="" id="7448dcb1-4815-4580-81ee-d013570aabfa" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7448dcb1-4815-4580-81ee-d013570aabfafileName">GetGender</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>name</con:name>
+      <con:value>firstName</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>firstName</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="GET" id="1094f269-3571-492a-b546-9a5813f8de88" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Gender" id="e800231f-99b6-40b7-85fc-d68de245ce5a" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://api.genderize.io/</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://api.agify.io/</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="name" value="{Name}"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>name</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="GetNationality" path="" id="c0f1a4dd-aa2f-4827-b3a3-a5de57299e61" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c0f1a4dd-aa2f-4827-b3a3-a5de57299e61fileName">GetNationality</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>name</con:name>
+      <con:value>firstName</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>firstName</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="GET" id="6b34d102-7d05-4c74-bfea-a93235736877" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Nationality" id="1296214e-4aa7-4903-94ee-5c5a11d24657" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://api.nationalize.io/</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://api.agify.io/</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="name" value="{Name}"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>name</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

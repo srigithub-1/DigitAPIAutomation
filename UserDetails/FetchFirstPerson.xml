@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="6e2ada17-0e95-469e-a427-aecbbf0ea888" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="FetchFirstPerson" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6e2ada17-0e95-469e-a427-aecbbf0ea888fileName">FetchFirstPerson</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request for First Name" id="e91664ad-b5b8-455d-bd73-c680be441974">
+    <con:settings/>
+    <con:config service="APIFirstNames" resourcePath="/api/" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request for First Name" id="42bb330a-ec98-4bf3-bdd9-70fe454eccf0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://randomuser.me/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://randomuser.me/api/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="5082293b-11db-42b9-b288-b62380815157" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="dea788bd-073a-4871-9a50-51d681b33a56" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="First Random Name" id="5f1fcb12-1308-4759-861c-0cf6ac512e02">
+    <con:settings/>
+    <con:config>
+      <script>def Name1 = context.expand( '${REST Request for First Name#ResponseAsXml#declare namespace ns1=\'https://randomuser.me/api/\'; //ns1:Response[1]/ns1:results[1]/ns1:e[1]/ns1:name[1]/ns1:first[1]}' )</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request for Age" id="83653b8d-ee46-4eb8-b495-4e8fc74a2788">
+    <con:settings/>
+    <con:config service="APIAge" resourcePath="" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request for Age" id="ba23481c-608f-4ed0-9c4e-4205480742e7" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.agify.io</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.agify.io/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="19eb8da6-8ad1-4083-823b-3b25b0bc9d63" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="791119bd-ac7f-4ef9-9638-cf1c530ca453" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="name" value="${First Random Name#result}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request for Gender" id="5c2f25c2-8ad3-4cf3-955e-51c89fefa5a4">
+    <con:settings/>
+    <con:config service="APIGender" resourcePath="" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request for Gender" id="e800231f-99b6-40b7-85fc-d68de245ce5a" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.genderize.io/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.agify.io/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1332585f-e905-43ea-824e-0b10444147cc" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="dd0efff3-4634-48b8-8efb-e261897af64a" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="name" value="${First Random Name#result}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>name</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request for Nationality" id="f6f34e0a-66fd-4149-b1ba-c8ce7d32a0a3">
+    <con:settings/>
+    <con:config service="APINationality" resourcePath="" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request for Nationality" id="1296214e-4aa7-4903-94ee-5c5a11d24657" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.nationalize.io/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.agify.io/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a6f0d9ed-a662-42bd-ad00-3d90657ba488" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="5f5ddc09-d469-4e44-ab68-a35bdaf84db4" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="name" value="${First Random Name#result}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>name</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Age, Gender and Nationality" id="e6f95b40-13ca-482e-9ec8-df7089dc4dfb">
+    <con:settings/>
+    <con:config>
+      <script>def Age1 = context.expand( '${REST Request for Age#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:age[1]}' )
+def Gender1 = context.expand( '${REST Request for Gender#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:gender[1]}' )
+def FPNationality_1 = context.expand( '${REST Request for Nationality#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[1]/ns1:country_id[1]}' )
+def FPNationality_2 = context.expand( '${REST Request for Nationality#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[2]/ns1:country_id[1]}' )
+def FPNationality_3 = context.expand( '${REST Request for Nationality#ResponseAsXml#declare namespace ns1=\'https://api.agify.io/\'; //ns1:Response[1]/ns1:country[1]/ns1:e[3]/ns1:country_id[1]}' )</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
